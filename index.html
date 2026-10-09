@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>礼让之花，盛开在校园｜篇章与朗读练习</title>
+<style>
+  :root { --purple:#5945b5; --purple-dark:#40328d; --lavender:#f3f0ff; --ink:#24233a; --muted:#68677b; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:linear-gradient(135deg,#f6f3ff 0%,#eef8ff 100%);
+    color:var(--ink); font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif; line-height:1.9;
+  }
+  .page { max-width:900px; margin:0 auto; padding:24px 16px 48px; }
+  header { text-align:center; padding:20px 18px 16px; }
+  .tag { display:inline-block; padding:4px 12px; border-radius:999px; background:#e4defe; color:var(--purple-dark); font-size:14px; font-weight:700; }
+  h1 { margin:12px 0 4px; font-size:clamp(27px,5vw,38px); line-height:1.35; color:#30256f; }
+  .subtitle { color:var(--muted); margin:0; }
+  
+  /* 页面显隐控制 */
+  .view-page { display: block; }
+  .hidden { display: none !important; }
+
+  /* 第一页：纯篇章样式 */
+  .clean-article { 
+    background:#fff; border:1px solid #e9e5f7; border-radius:20px; 
+    padding:clamp(20px,5vw,40px); box-shadow:0 12px 34px #33266f0d; 
+    font-size:19px; line-height:2; 
+  }
+  .clean-article p { margin-bottom:1.2em; text-align:justify; }
+  .clean-article .intro { font-weight:600; color:#514c6a; }
+  .clean-article .quote { color:#43358d; font-weight:800; }
+  
+  .action-bar { text-align:center; margin-top:28px; }
+  .btn-large { 
+    font-size:18px; padding:14px 32px; border-radius:16px; 
+    box-shadow:0 8px 20px rgba(89,69,181,0.25); cursor:pointer; 
+  }
+
+  /* 第二页：朗读练习控制区 */
+  .nav-header { display:flex; justify-content:flex-start; margin-bottom:12px; }
+  .toolbar { position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; padding:13px; margin:12px 0 20px; border:1px solid #e5e0fa; border-radius:18px; background:rgba(255,255,255,.94); box-shadow:0 6px 22px #40328d12; backdrop-filter:blur(8px); }
+  button, select { font:inherit; }
+  button { border:0; border-radius:12px; padding:10px 16px; cursor:pointer; font-weight:700; transition:transform .12s,opacity .12s; }
+  button:hover { transform:translateY(-1px); }
+  button:focus-visible, select:focus-visible { outline:3px solid #9c8af0; outline-offset:2px; }
+  .primary { background:var(--purple); color:white; }
+  .secondary { background:var(--lavender); color:var(--purple-dark); }
+  .stop { background:#fff0f0; color:#a22a39; }
+  .setting { display:flex; align-items:center; gap:7px; color:var(--muted); font-size:14px; }
+  select { max-width:190px; padding:8px; border:1px solid #d8d3ed; border-radius:10px; background:white; color:var(--ink); }
+  .notice { padding:12px 16px; margin-bottom:16px; border-radius:12px; background:#fff9df; color:#725b12; font-size:14px; }
+  .article { background:#fff; border:1px solid #e9e5f7; border-radius:20px; padding:clamp(18px,4vw,34px); box-shadow:0 12px 34px #33266f0d; }
+  .paragraph { padding:14px 14px 12px; margin:10px 0; border-radius:14px; border:1px solid transparent; }
+  .paragraph.active { background:#f4f1ff; border-color:#c9bfff; box-shadow:inset 4px 0 0 var(--purple); }
+  .paragraph p { margin:0 0 8px; font-size:18px; }
+  .read-one { padding:6px 12px; font-size:14px; background:#eeebff; color:var(--purple-dark); }
+  .ending { text-align:center; color:var(--muted); font-size:14px; margin-top:20px; }
+  .status { text-align:center; min-height:28px; color:var(--purple-dark); font-weight:700; margin:0 0 10px; }
+  footer { text-align:center; color:var(--muted); font-size:13px; margin-top:24px; }
+  @media(max-width:520px) {
+    .toolbar { position:static; }
+    .paragraph p { font-size:17px; }
+    .clean-article { font-size:17px; }
+    button { padding:9px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= 第一页：篇章展示 ================= -->
+  <div id="page1" class="view-page">
+    <header>
+      <span class="tag">五年级道德教育 · 篇章</span>
+      <h1>礼让之花，盛开在校园</h1>
+      <p class="subtitle">请先静心阅读或朗读全文</p>
+    </header>
+
+    <main class="clean-article">
+      <p class="intro">尊敬的老师、亲爱的同学们：</p>
+      <p>大家好！今天我朗读的题目是《礼让之花，盛开在校园》。</p>
+      <p>道德教育课程标准告诉我们，<strong>礼让</strong>是指人人能够<strong>互相忍让、忍耐与自制</strong>。在校园与社区生活中，礼让就像一阵温暖的春风，不仅能抚平摩擦，更能为我们创设一个安宁与和谐的环境。</p>
+      <p>在日常校园里，礼让的影子无处不在。在食堂排队买饭时，面对行动不便或受伤的同学，我们克制急躁，主动让他们优先；在狭窄的走廊或楼梯口相遇时，我们放慢脚步，侧身退让，礼貌地请对方先过；在球场或活动空间有限时，我们学会沟通与包容，共同分享场地。这些看似微小的举动，正是礼让精神最生动的体现。</p>
+      <p><strong>为什么要学会礼让呢？</strong> 因为礼让能避免不必要的争执与伤害，拉近同学之间的距离，让校园充满关爱与温情。相反，如果大家在生活中忽视礼让、互不相让，不仅容易引发冲突，还会破坏校园与社区的和谐氛围。</p>
+      <p>每当我主动后退一步、伸出手礼让他人时，我的内心都会感到无比开心与自豪，因为我用自制与体谅为别人带来了便利。</p>
+      <p class="quote">“退一步海阔天空，让三分心平气和。” 同学们，让我们从自己做起，在日常生活中积极实践礼让行为，成为大家学习的好榜样，共同让礼让之花绽放在校园的每一个角落！</p>
+      <p>我的朗读完毕，谢谢大家！</p>
+    </main>
+
+    <div class="action-bar">
+      <button class="primary btn-large" id="toPage2">进入朗读练习 ▶</button>
+    </div>
+  </div>
+
+  <!-- ================= 第二页：朗读练习 ================= -->
+  <div id="page2" class="view-page hidden">
+    <div class="nav-header">
+      <button class="secondary" id="toPage1">◀ 返回篇章</button>
+    </div>
+
+    <header>
+      <span class="tag">五年级道德教育 · 朗读练习</span>
+      <h1>礼让之花，盛开在校园</h1>
+      <p class="subtitle">跟着 AI 语音朗读，也可以逐段练习</p>
+    </header>
+
+    <section class="toolbar" aria-label="朗读控制">
+      <button class="primary" id="readAll">▶ 全文朗读</button>
+      <button class="secondary" id="pauseResume">Ⅱ 暂停</button>
+      <button class="stop" id="stop">■ 停止</button>
+      <label class="setting">语音
+        <select id="voiceSelect" aria-label="选择朗读声音"><option value="">自动选择中文语音</option></select>
+      </label>
+      <label class="setting">语速
+        <select id="rateSelect" aria-label="选择语速">
+          <option value="0.75">慢速</option>
+          <option value="0.9" selected>适中</option>
+          <option value="1">正常</option>
+          <option value="1.15">稍快</option>
+        </select>
+      </label>
+    </section>
+
+    <p class="status" id="status" aria-live="polite">准备好后，点击“全文朗读”或每段下方的朗读按钮。</p>
+    <div class="notice">小提示：朗读使用浏览器或设备内置的中文语音。若没有声音，请检查设备音量，并尝试使用最新版 Chrome 或 Edge 浏览器。</div>
+
+    <main class="article" id="article">
+      <div class="paragraph" data-index="0">
+        <p class="intro">尊敬的老师、亲爱的同学们：</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="1">
+        <p>大家好！今天我朗读的题目是《礼让之花，盛开在校园》。</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="2">
+        <p>道德教育课程标准告诉我们，<strong>礼让</strong>是指人人能够<strong>互相忍让、忍耐与自制</strong>。在校园与社区生活中，礼让就像一阵温暖的春风，不仅能抚平摩擦，更能为我们创设一个安宁与和谐的环境。</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="3">
+        <p>在日常校园里，礼让的影子无处不在。在食堂排队买饭时，面对行动不便或受伤的同学，我们克制急躁，主动让他们优先；在狭窄的走廊或楼梯口相遇时，我们放慢脚步，侧身退让，礼貌地请对方先过；在球场或活动空间有限时，我们学会沟通与包容，共同分享场地。这些看似微小的举动，正是礼让精神最生动的体现。</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="4">
+        <p><strong>为什么要学会礼让呢？</strong> 因为礼让能避免不必要的争执与伤害，拉近同学之间的距离，让校园充满关爱与温情。相反，如果大家在生活中忽视礼让、互不相让，不仅容易引发冲突，还会破坏校园与社区的和谐氛围。</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="5">
+        <p>每当我主动后退一步、伸出手礼让他人时，我的内心都会感到无比开心与自豪，因为我用自制与体谅为别人带来了便利。</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="6">
+        <p class="quote">“退一步海阔天空，让三分心平气和。” 同学们，让我们从自己做起，在日常生活中积极实践礼让行为，成为大家学习的好榜样，共同让礼让之花绽放在校园的每一个角落！</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+      <div class="paragraph" data-index="7">
+        <p>我的朗读完毕，谢谢大家！</p>
+        <button class="read-one" type="button">▶ 朗读本段</button>
+      </div>
+    </main>
+    <p class="ending">练习建议：先听全文，再逐段跟读，最后自己独立朗读。</p>
+  </div>
+
+  <footer>校园朗读小助手 · 礼让从我做起</footer>
+</div>
+
+<script>
+(() => {
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const toPage2Btn = document.getElementById('toPage2');
+  const toPage1Btn = document.getElementById('toPage1');
+
+  const status = document.getElementById('status');
+  const voiceSelect = document.getElementById('voiceSelect');
+  const rateSelect = document.getElementById('rateSelect');
+  const pauseResume = document.getElementById('pauseResume');
+  const paragraphs = Array.from(document.querySelectorAll('.paragraph'));
+  const synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
+
+  let queue = [];
+  let runId = 0;
+  let isPaused = false;
+
+  // 页面切换逻辑
+  toPage2Btn.addEventListener('click', () => {
+    page1.classList.add('hidden');
+    page2.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  toPage1Btn.addEventListener('click', () => {
+    stopSpeech(); // 返回第一页时停止朗读
+    page2.classList.add('hidden');
+    page1.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function stopSpeech() {
+    runId++;
+    queue = [];
+    if (synth) synth.cancel();
+    clearActive();
+    isPaused = false;
+    pauseResume.textContent = 'Ⅱ 暂停';
+    if(status) status.textContent = '朗读已停止。';
+  }
+
+  function getText(el) {
+    const p = el.querySelector('p');
+    return p ? (p.textContent || '').replace(/\s+/g, ' ').trim() : '';
+  }
+
+  function clearActive() {
+    paragraphs.forEach(p => p.classList.remove('active'));
+  }
+
+  function updateVoiceList() {
+    if (!synth) return;
+    const previous = voiceSelect.value;
+    const voices = synth.getVoices();
+    voiceSelect.innerHTML = '';
+    const auto = document.createElement('option');
+    auto.value = '';
+    auto.textContent = '自动选择中文语音';
+    voiceSelect.appendChild(auto);
+
+    voices.forEach((voice, i) => {
+      const option = document.createElement('option');
+      option.value = String(i);
+      option.textContent = `${voice.name} (${voice.lang})${voice.default ? ' · 默认' : ''}`;
+      voiceSelect.appendChild(option);
+    });
+
+    if (previous && voices[Number(previous)]) {
+      voiceSelect.value = previous;
+    } else {
+      const chineseIndex = voices.findIndex(v => /^zh([-_]|$)/i.test(v.lang));
+      voiceSelect.value = chineseIndex >= 0 ? String(chineseIndex) : '';
+    }
+  }
+
+  function chooseVoice() {
+    if (!synth) return null;
+    const voices = synth.getVoices();
+    if (voiceSelect.value !== '') return voices[Number(voiceSelect.value)] || null;
+    return voices.find(v => /^zh([-_]|$)/i.test(v.lang)) || null;
+  }
+
+  function speakNext(id) {
+    if (!synth || id !== runId) return;
+
+    if (queue.length === 0) {
+      clearActive();
+      status.textContent = '朗读完成！可以再次点击朗读。';
+      pauseResume.textContent = 'Ⅱ 暂停';
+      isPaused = false;
+      return;
+    }
+
+    const item = queue.shift();
+    clearActive();
+    if (item.index >= 0 && paragraphs[item.index]) {
+      paragraphs[item.index].classList.add('active');
+      paragraphs[item.index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    const utterance = new SpeechSynthesisUtterance(item.text);
+    utterance.lang = 'zh-CN';
+    utterance.rate = Number(rateSelect.value) || 0.9;
+    const voice = chooseVoice();
+    if (voice) {
+      utterance.voice = voice;
+      utterance.lang = voice.lang || 'zh-CN';
+    }
+
+    status.textContent = item.index >= 0
+      ? `正在朗读第 ${item.index + 1} 段……`
+      : '正在朗读……';
+
+    utterance.onend = () => {
+      if (id === runId) window.setTimeout(() => speakNext(id), 120);
+    };
+    utterance.onerror = (event) => {
+      if (id !== runId) return;
+      console.error('Speech synthesis error:', event.error);
+      status.textContent = `语音播放失败（${event.error || '未知原因'}）。请检查电脑音量，或换一个浏览器/语音。`;
+      queue = [];
+      clearActive();
+      isPaused = false;
+      pauseResume.textContent = 'Ⅱ 暂停';
+    };
+
+    try {
+      synth.speak(utterance);
+    } catch (err) {
+      status.textContent = '浏览器无法启动语音。请使用最新版 Chrome 或 Edge，并重新打开此文件。';
+      console.error(err);
+    }
+  }
+
+  function start(items) {
+    if (!synth) {
+      status.textContent = '此浏览器不支持语音朗读，请使用最新版 Chrome 或 Edge。';
+      return;
+    }
+    const validItems = items.filter(item => item.text);
+    if (!validItems.length) {
+      status.textContent = '没有找到可朗读的文字。';
+      return;
+    }
+
+    runId++;
+    const thisRun = runId;
+    queue = validItems.slice();
+    isPaused = false;
+    pauseResume.textContent = 'Ⅱ 暂停';
+    status.textContent = '正在准备语音……';
+
+    synth.cancel();
+    window.setTimeout(() => {
+      if (thisRun === runId) speakNext(thisRun);
+    }, 180);
+  }
+
+  document.getElementById('readAll').addEventListener('click', () => {
+    start(paragraphs.map((el, index) => ({ text: getText(el), index })));
+  });
+
+  document.querySelectorAll('.read-one').forEach(button => {
+    button.addEventListener('click', () => {
+      const el = button.closest('.paragraph');
+      start([{ text: getText(el), index: Number(el.dataset.index) }]);
+    });
+  });
+
+  pauseResume.addEventListener('click', () => {
+    if (!synth) return;
+    if (synth.speaking && !synth.paused) {
+      synth.pause();
+      isPaused = true;
+      pauseResume.textContent = '▶ 继续';
+      status.textContent = '朗读已暂停。';
+    } else if (synth.paused || isPaused) {
+      synth.resume();
+      isPaused = false;
+      pauseResume.textContent = 'Ⅱ 暂停';
+      status.textContent = '继续朗读……';
+    }
+  });
+
+  document.getElementById('stop').addEventListener('click', stopSpeech);
+
+  if (synth) {
+    updateVoiceList();
+    if (typeof synth.addEventListener === 'function') {
+      synth.addEventListener('voiceschanged', updateVoiceList);
+    } else {
+      synth.onvoiceschanged = updateVoiceList;
+    }
+    window.setTimeout(updateVoiceList, 500);
+    status.textContent = '语音功能已准备好。点击“全文朗读”开始。';
+  } else {
+    status.textContent = '检测不到浏览器语音功能，请使用最新版 Google Chrome 或 Microsoft Edge。';
+    document.getElementById('readAll').disabled = true;
+    document.querySelectorAll('.read-one').forEach(button => button.disabled = true);
+  }
+})();
+</script>
+</body>
+</html>
